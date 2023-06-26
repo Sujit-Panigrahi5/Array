@@ -1,0 +1,22 @@
+class Solution {
+    public int distributeCandies(int[] candyType) {
+        int n=candyType.length;
+        int i=1;
+       
+        int diff=1;
+        HashMap<Integer,Integer> map =new HashMap<>();
+        map.put(candyType[0],1);
+        while(i<n){
+            if(!map.containsKey(candyType[i])){
+                diff++;
+                map.put(candyType[i],1);
+            }
+            i++;
+        }
+        int candy=n/2;
+        if(diff >= candy){
+            return candy;
+        } 
+        return diff;
+    }
+}
